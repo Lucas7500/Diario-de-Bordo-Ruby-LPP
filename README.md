@@ -190,7 +190,7 @@ Ruby possui escopo estático, ou seja, as variáveis são resolvidas em tempo de
 def metodo_externo
   variavel_externa = "Exemplo de variável externa"
 
-  inner_method = Proc.new do
+  metodo_interno = Proc.new do
     puts variavel_externa
   end
 
@@ -198,4 +198,142 @@ def metodo_externo
 end
 
 metodo_externo # Saída: "Exemplo de variável externa"
+```
+
+# Expressões e Sentenças de Atribuição
+
+## Expressões Aritméticas
+```ruby
+# Definindo algumas variáveis
+a = 5
+b = 3
+
+# Realizando operações aritméticas
+soma = a + b            
+subtracao = a - b       
+multiplicacao = a * b   
+divisao = a / b         
+resto = a % b           
+potencia = a ** b       
+
+puts soma            # Saída: 8 
+puts subtracao       # Saída: 2
+puts multiplicacao   # Saída: 15
+puts divisao         # Saída: 1
+puts resto           # Saída: 2
+puts potencia        # Saída: 125
+```
+
+## Precedência de Operadores
+```ruby
+a = 10
+b = 5
+c = 2
+
+resultado = a + b * c    
+puts resultado           # Saída: 20
+
+resultado = (a + b) * c
+puts resultado           # Saída: 30
+
+resultado = a * b + c
+puts resultado           # Saída: 52
+
+resultado = a * (b + c)
+puts resultado           # Saída: 70
+```
+
+## Associatividade
+```ruby
+# Associatividade da esquerda para a direita
+resultado = 15 / 3 / 5       # 1
+resultado = 20 - 5 - 3 - 2   # 10
+
+# Associatividade da direita para a esquerda
+resultado = 2 ** 3 ** 2  # 512
+resultado = 10 ** 2 ** 3 # 10000000000
+```
+
+## Expressões Condicionais
+```ruby
+idade = 20
+nota = 85
+
+# if-else
+if idade >= 18
+  puts "Você é maior de idade"
+else
+  puts "Você é menor de idade"
+end
+
+# ternário
+puts idade >= 18 ? "Você é maior de idade" : "Você é menor de idade"
+
+# if-elsif-else
+if nota >= 90
+  puts "Aprovado com A"
+elsif nota >= 80
+  puts "Aprovado com B"
+elsif nota >= 70
+  puts "Aprovado com C"
+else
+  puts "Reprovado"
+end
+```
+
+## Ordem de Avaliação dos Operandos
+
+```ruby
+def retorna_10
+  return 10
+end
+
+resultado = retorna_10 + 5 * 2
+puts resultado # Saída: 20
+```
+
+## Sobrecarga de Operadores
+```ruby
+class Vetor2D
+  attr_accessor :x, :y
+
+  def initialize(x, y)
+    @x = x
+    @y = y
+  end
+
+  def +(outro)
+    Vetor2D.new(@x + outro.x, @y + outro.y)
+  end
+
+# Método utilizado para printar o valor 
+  def to_s
+    "(#{@x}, #{@y})"
+  end
+end
+
+vetor1 = Vetor2D.new(1, 2)
+vetor2 = Vetor2D.new(3, 4)
+
+resultado = vetor1 + vetor2
+
+puts resultado  # Saída: (4, 6)
+```
+
+## Conversões de Tipo
+
+```ruby
+# Implícita
+x = 10
+y = 3.5
+
+soma = x + y  # 10 é implicitamente convertido para float
+puts soma     # Saída: 13.5
+
+# Explícita
+num_inteiro = 10
+num_string = "20"
+
+soma = num_inteiro + num_string.to_i  # Conversão explícita de num_string para inteiro
+puts soma                             # Saída: 30
 ```
