@@ -204,11 +204,9 @@ metodo_externo # Saída: "Exemplo de variável externa"
 
 ## Expressões Aritméticas
 ```ruby
-# Definindo algumas variáveis
 a = 5
 b = 3
 
-# Realizando operações aritméticas
 soma = a + b            
 subtracao = a - b       
 multiplicacao = a * b   
@@ -244,32 +242,49 @@ puts resultado           # Saída: 70
 ```
 
 ## Associatividade
-```ruby
-# Associatividade da esquerda para a direita
-resultado = 15 / 3 / 5       # 1
-resultado = 20 - 5 - 3 - 2   # 10
 
-# Associatividade da direita para a esquerda
-resultado = 2 ** 3 ** 2  # 512
-resultado = 10 ** 2 ** 3 # 10000000000
+### Esquerda para a Direita
+```ruby
+resultado1 = 15 / 3 / 5
+resultado2 = 20 - 5 - 3 - 2
+
+puts resultado1  # Saída: 1
+puts resultado2  # Saída: 10
+```
+
+### Direita para a Esquerda
+```ruby
+resultado3 = 2 ** 3 ** 2
+resultado4 = 10 ** 2 ** 3
+
+puts resultado3  # Saída: 512
+puts resultado4  # Saída: 10000000000
 ```
 
 ## Expressões Condicionais
+
+### if-else
 ```ruby
 idade = 20
-nota = 85
 
-# if-else
 if idade >= 18
   puts "Você é maior de idade"
 else
   puts "Você é menor de idade"
 end
+```
 
-# ternário
+### ternário
+```ruby
+idade = 14
+
 puts idade >= 18 ? "Você é maior de idade" : "Você é menor de idade"
+```
 
-# if-elsif-else
+### if-elsif-else
+```ruby
+nota = 70
+
 if nota >= 90
   puts "Aprovado com A"
 elsif nota >= 80
@@ -306,8 +321,8 @@ class Vetor2D
     Vetor2D.new(@x + outro.x, @y + outro.y)
   end
 
-# Método utilizado para printar o valor 
-  def to_s
+
+  def to_s            # Método utilizado para printar o valor 
     "(#{@x}, #{@y})"
   end
 end
@@ -317,23 +332,172 @@ vetor2 = Vetor2D.new(3, 4)
 
 resultado = vetor1 + vetor2
 
-puts resultado  # Saída: (4, 6)
+puts resultado       # Saída: (4, 6)
 ```
 
 ## Conversões de Tipo
 
+### Implícita
 ```ruby
-# Implícita
 x = 10
 y = 3.5
 
 soma = x + y  # 10 é implicitamente convertido para float
 puts soma     # Saída: 13.5
+```
 
-# Explícita
+### Explícita
+```ruby
 num_inteiro = 10
 num_string = "20"
 
 soma = num_inteiro + num_string.to_i  # Conversão explícita de num_string para inteiro
 puts soma                             # Saída: 30
+```
+
+## Expressões Relacionais
+
+### Igual a
+```ruby
+5 == 10  # false
+```
+
+### Diferente de
+```ruby
+5 != 10  # true
+```
+
+### Maior que
+```ruby
+5 > 10  # false
+```
+
+### Menor que
+```ruby
+5 < 10  # true
+```
+
+### Maior ou igual a
+```ruby
+5 >= 10  # false
+```
+
+### Menor ou igual a
+```ruby
+5 <= 10  # true
+```
+
+## Atribuição
+
+### Simples 
+```ruby
+x = 10
+puts x  # Saída: 10
+```
+
+### Com Operadores Aritméticos
+```ruby
+y = 5
+y += 2 # Equivalente a y = y + 2
+puts y # Saída: 7
+```
+
+### Atribuição múltipla
+```ruby
+a, b, c = 1, 2, 3
+puts a # Saída: 1
+puts b # Saída: 2
+puts c # Saída: 3
+```
+
+### Atribuição condicional
+```ruby
+z = 20
+z ||= 30  # Atribui 30 a z apenas se z for nil ou false
+puts z # Saída: 20
+```
+
+# Estruturas de Controle
+
+## Sentenças de seleção
+
+### Expressão de Controle
+```ruby
+if a == 2
+  print a
+else
+  print "não é igual"
+end
+```
+
+### Seletores Aninhados
+```ruby
+if a == 2
+  if a < b
+    puts b
+  end
+else
+  puts a
+end
+```
+
+### Seleção Múltipla
+```ruby
+z = 3
+case z
+when 1
+  puts "z é 1"
+when 2
+  puts "z é 2"
+else
+  puts "z é diferente de 1 e 2"
+end
+```
+
+## Sentença Iterativa
+
+### Loops Controlados por Contadores
+```ruby
+for i in 1..5
+  puts i
+end
+```
+### Loops Controlados Logicamente
+```ruby
+contador_while = 1
+contador_until = 1
+
+while contador_while <= 5 do
+  puts contador_while
+  contador_while += 1
+end
+
+until contador_until > 5 do
+  puts contador_until
+  contador_until += 1
+end
+```
+
+### Controle definido pelo usuário
+```ruby
+i = 0
+loop do
+  puts i
+  i += 1
+  break if i >= 5 # para o loop se a condição for verdadeira
+end
+
+for i in 0..5
+  next if i % 2 == 0  # Pula para a próxima iteração se i for par
+  puts i
+end
+```
+
+### # Iteração Baseada em Estrutura de Dados
+```ruby
+numeros = [1, 2, 3, 4, 5]
+
+numeros.each do |numero|
+  puts numero
+end
 ```
