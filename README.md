@@ -46,7 +46,6 @@ puts maior  # Saída: 18
 
 Ruby implementada por meio da interpretação pura, ou seja, é executado diretamente por um interpretador, sem a necessidade de compilação prévia para código de máquina.
 
-
 # Variáveis: Nomes e Amarração 
 
 ## Atributos das Variáveis
@@ -108,7 +107,7 @@ class Pessoa
 end
 ```
 
-### Nomes de constantes: Constantes em Ruby são escritas em letras maiúsculas, com palavras separadas por underscores. Por exemplo: CONSTANTE_EXEMPLO.
+### Nomes de constantes: Constantes em Ruby são escritas em letras maiúsculas, com palavras separadas por underscores.
 ```ruby
 MINHA_CONSTANTE = 3.141592
 ```
@@ -163,16 +162,36 @@ yield       # Starts execution of the block sent to the current method. See meth
 ## Tipos de Variável
 
 Ruby suporta variáveis dos tipos Number, Boolean, String, Hash, Array e Symbol
+### Number
 ```ruby
-numero = 2            # Number
-bool = true           # Boolean
-str = "Exemplo"       # String
-hash = {              # Hash
-  chave1: "Exemplo",
-  chave2: 2
-}
-arr = [1, 2, 3, 4]    # Array
-:exemplo              # Symbol
+numero = 2
+numero = 2.5
+```
+
+### Boolean
+```ruby
+booleano = false
+booleano = true
+```
+
+### String
+```ruby
+exemplo_string = "Exemplo string"
+```
+
+### Hash
+```ruby
+exemplo_hash = { :nome => "Pedro", :idade => 28 }
+```
+
+### Array
+```ruby
+arr = [1, 2, 3, 4, 5]
+```
+
+### Symbol
+```ruby
+:exemplo_symbol
 ```
 
 ## Amarração do Tipo das Variáveis
@@ -203,23 +222,41 @@ metodo_externo # Saída: "Exemplo de variável externa"
 # Expressões e Sentenças de Atribuição
 
 ## Expressões Aritméticas
+
+### Soma
 ```ruby
-a = 5
-b = 3
+soma = 3 + 5
+puts soma  # Saída: 8
+```
 
-soma = a + b            
-subtracao = a - b       
-multiplicacao = a * b   
-divisao = a / b         
-resto = a % b           
-potencia = a ** b       
+### Subtração
+```ruby
+subtracao = 5 - 3
+puts subtracao  # Saída: 2
+```
 
-puts soma            # Saída: 8 
-puts subtracao       # Saída: 2
-puts multiplicacao   # Saída: 15
-puts divisao         # Saída: 1
-puts resto           # Saída: 2
-puts potencia        # Saída: 125
+### Multiplicação
+```ruby
+multiplicacao = 4 * 2
+puts multiplicacao  # Saída: 8
+```
+
+### Divisão
+```ruby
+divisao = 10 / 2
+puts divisao  # Saída: 5
+```
+
+### Resto
+```ruby
+resto = 5 % 2
+puts resto  # Saída: 3
+```
+
+### Potência
+```ruby
+potencia = 5 ** 3
+puts potencia  # Saída: 125
 ```
 
 ## Precedência de Operadores
