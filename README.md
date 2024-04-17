@@ -250,7 +250,7 @@ puts divisao  # Saída: 5
 ### Resto
 ```ruby
 resto = 5 % 2
-puts resto  # Saída: 3
+puts resto  # Saída: 1
 ```
 
 ### Potência
