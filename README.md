@@ -538,3 +538,145 @@ numeros.each do |numero|
   puts numero
 end
 ```
+
+### Diário de Bordo - Linguagem Ruby
+
+## Subprogramas (Métodos)
+
+Subprogramas em Ruby são métodos definidos com a palavra-chave `def`. Eles podem receber parâmetros formais e informais e permitem diferentes tipos de passagem de parâmetro.
+
+### Definição de Métodos
+
+Em Ruby, um método é definido usando a palavra-chave `def`, seguida pelo nome do método e, opcionalmente, uma lista de parâmetros:
+
+```ruby
+def saudacao
+  puts "Olá, mundo!"
+end
+```
+
+### Parâmetros Formais
+
+Parâmetros formais são definidos na declaração do método. Eles podem ser obrigatórios ou opcionais:
+
+```ruby
+def saudacao(nome)
+  puts "Olá, #{nome}!"
+end
+
+# Chamada do método
+saudacao("João") # Saída: Olá, João!
+```
+
+### Parâmetros Opcionais
+
+Parâmetros opcionais podem ter valores padrão, que serão usados se nenhum argumento for passado:
+
+```ruby
+def saudacao(nome = "Mundo")
+  puts "Olá, #{nome}!"
+end
+
+saudacao()          # Saída: Olá, Mundo!
+saudacao("João")    # Saída: Olá, João!
+```
+
+### Parâmetros Variáveis
+
+Métodos em Ruby podem aceitar um número variável de argumentos usando o operador splat (`*`):
+
+```ruby
+def soma(*numeros)
+  numeros.reduce(0) { |soma, num| soma + num }
+end
+
+puts soma(1, 2, 3, 4)  # Saída: 10
+puts soma(5, 10)       # Saída: 15
+```
+
+### Tipos de Passagem de Parâmetro
+
+Ruby utiliza passagem de parâmetros por valor para objetos imutáveis (como números e símbolos) e passagem por referência para objetos mutáveis (como arrays e hashes).
+
+```ruby
+def modificar_parametros(a, b)
+  a += 10
+  b << "mundo"
+end
+
+x = 5
+y = "Olá, "
+
+modificar_parametros(x, y)
+
+puts x  # Saída: 5 (imutável, não alterado)
+puts y  # Saída: "Olá, mundo" (mutável, alterado)
+```
+
+## Tratamento de Exceção
+
+Ruby possui um robusto sistema de tratamento de exceções, permitindo que erros sejam gerenciados de forma eficaz.
+
+### Bloco `begin-rescue`
+
+Você pode capturar exceções usando blocos `begin-rescue`:
+
+```ruby
+begin
+  # Código que pode lançar uma exceção
+  resultado = 10 / 0
+rescue ZeroDivisionError => e
+  # Código para lidar com a exceção
+  puts "Erro: #{e.message}"
+end
+```
+
+### Bloco `ensure`
+
+O bloco `ensure` é utilizado para executar código que deve ser executado independentemente de uma exceção ter ocorrido ou não:
+
+```ruby
+begin
+  # Código que pode lançar uma exceção
+  resultado = 10 / 0
+rescue ZeroDivisionError => e
+  # Código para lidar com a exceção
+  puts "Erro: #{e.message}"
+ensure
+  # Código que sempre será executado
+  puts "Operação finalizada."
+end
+```
+
+### Bloco `retry`
+
+O bloco `retry` permite tentar executar o bloco `begin` novamente, útil em situações onde uma falha pode ser temporária:
+
+```ruby
+begin
+  # Código que pode lançar uma exceção
+  resultado = 10 / 0
+rescue ZeroDivisionError => e
+  # Código para lidar com a exceção
+  puts "Erro: #{e.message}. Tentando novamente..."
+  retry
+end
+```
+
+### Exceções Personalizadas
+
+Você pode definir suas próprias exceções em Ruby criando subclasses da classe `StandardError`:
+
+```ruby
+class MinhaExcecao < StandardError; end
+
+def metodo_que_lanca_excecao
+  raise MinhaExcecao, "Algo deu errado!"
+end
+
+begin
+  metodo_que_lanca_excecao
+rescue MinhaExcecao => e
+  puts "Capturada minha exceção: #{e.message}"
+end
+```
