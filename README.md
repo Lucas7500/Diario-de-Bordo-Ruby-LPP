@@ -530,7 +530,7 @@ for i in 0..5
 end
 ```
 
-### # Iteração Baseada em Estrutura de Dados
+### Iteração Baseada em Estrutura de Dados
 ```ruby
 numeros = [1, 2, 3, 4, 5]
 
@@ -539,13 +539,12 @@ numeros.each do |numero|
 end
 ```
 
-### Diário de Bordo - Linguagem Ruby
 
-## Subprogramas (Métodos)
+# Subprogramas
 
 Subprogramas em Ruby são métodos definidos com a palavra-chave `def`. Eles podem receber parâmetros formais e informais e permitem diferentes tipos de passagem de parâmetro.
 
-### Definição de Métodos
+## Definição de Métodos
 
 Em Ruby, um método é definido usando a palavra-chave `def`, seguida pelo nome do método e, opcionalmente, uma lista de parâmetros:
 
@@ -555,7 +554,7 @@ def saudacao
 end
 ```
 
-### Parâmetros Formais
+## Parâmetros Formais
 
 Parâmetros formais são definidos na declaração do método. Eles podem ser obrigatórios ou opcionais:
 
@@ -568,7 +567,7 @@ end
 saudacao("João") # Saída: Olá, João!
 ```
 
-### Parâmetros Opcionais
+## Parâmetros Opcionais
 
 Parâmetros opcionais podem ter valores padrão, que serão usados se nenhum argumento for passado:
 
@@ -581,7 +580,7 @@ saudacao()          # Saída: Olá, Mundo!
 saudacao("João")    # Saída: Olá, João!
 ```
 
-### Parâmetros Variáveis
+## Parâmetros Variáveis
 
 Métodos em Ruby podem aceitar um número variável de argumentos usando o operador splat (`*`):
 
@@ -594,7 +593,7 @@ puts soma(1, 2, 3, 4)  # Saída: 10
 puts soma(5, 10)       # Saída: 15
 ```
 
-### Tipos de Passagem de Parâmetro
+## Tipos de Passagem de Parâmetro
 
 Ruby utiliza passagem de parâmetros por valor para objetos imutáveis (como números e símbolos) e passagem por referência para objetos mutáveis (como arrays e hashes).
 
@@ -613,7 +612,7 @@ puts x  # Saída: 5 (imutável, não alterado)
 puts y  # Saída: "Olá, mundo" (mutável, alterado)
 ```
 
-## Tratamento de Exceção
+# Tratamento de Exceção
 
 Ruby possui um robusto sistema de tratamento de exceções, permitindo que erros sejam gerenciados de forma eficaz.
 
